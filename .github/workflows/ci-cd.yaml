@@ -70,7 +70,7 @@ jobs:
             docker rmi ${{ env.DOCKER_IMAGE_NAME }}:latest || true
             
             # Login to Docker Hub
-            echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+            echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
             
             # Pull latest image
             docker pull ${{ env.DOCKER_IMAGE_NAME }}:latest
